@@ -11,6 +11,7 @@ public class CatController : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public Camera playerCamera;
+    public Animator anim;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
 
@@ -42,8 +43,10 @@ public class CatController : MonoBehaviour
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
+
+        if (Input.GetButtonDown("Jump") && canMove && characterController.isGrounded)
         {
+            anim.SetBool("Jumping", true);
             moveDirection.y = jumpSpeed;
         }
         else
@@ -56,8 +59,9 @@ public class CatController : MonoBehaviour
         // as an acceleration (ms^-2)
         if (!characterController.isGrounded)
         {
+            anim.SetBool("Jumping", true);
             moveDirection.y -= gravity * Time.deltaTime;
-        }
+        } else anim.SetBool("Jumping",false);
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
