@@ -123,10 +123,10 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &77415001 stripped
+--- !u!4 &187249445 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1148418027494545580, guid: 533ff926f1c252340b4be5a79b57985c, type: 3}
-  m_PrefabInstance: {fileID: 432346238}
+  m_CorrespondingSourceObject: {fileID: 1845951729244287130, guid: 39105c739076a0949aa89af672b312fb, type: 3}
+  m_PrefabInstance: {fileID: 8663425559911598812}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &219713854
 GameObject:
@@ -1080,7 +1080,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -1107,13 +1107,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679577347}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0013, y: 0.845, z: 0.623}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.4000807, y: 0.000000074522994, z: 0.00000009304395, w: 0.91647995}
+  m_LocalPosition: {x: 0.00006367756, y: 0.014352373, z: 0.0022386885}
+  m_LocalScale: {x: 0.04898445, y: 0.048984453, z: 0.048984453}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8663425559911598817}
-  m_RootOrder: 0
+  m_Father: {fileID: 187249445}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1873041459
 PrefabInstance:
@@ -1407,7 +1407,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4501137639511796150, guid: 39105c739076a0949aa89af672b312fb, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 1845951729244287130, guid: 39105c739076a0949aa89af672b312fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1679577350}
     m_AddedComponents:
@@ -1476,7 +1476,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.5, z: 0.54}
+  m_Center: {x: 0, y: 0.5, z: 0.45}
 --- !u!95 &8663425559911598816
 Animator:
   serializedVersion: 5
@@ -1498,11 +1498,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &8663425559911598817 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4501137639511796150, guid: 39105c739076a0949aa89af672b312fb, type: 3}
-  m_PrefabInstance: {fileID: 8663425559911598812}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8663425559911598818
 MonoBehaviour:
   m_ObjectHideFlags: 0
