@@ -85,7 +85,14 @@ public class teleport : MonoBehaviour {
             otherScript.cameraScript.LateUpdate();
             cameraScript.LateUpdate();
             
-            
+            //reset player's character controller (if there is one)
+            //otherwise it won't allow the change of position
+            if (objectToTeleport.TryGetComponent(out CharacterController cc)) {
+                cc.enabled = false;
+                cc.enabled = true;
+            }
+
+
             /*
              * If you need to do something to your player when it's teleporting, this is when.
              * See online documentation about controller (pipasjourney.com/damianGonzalez/portals/#controller)
