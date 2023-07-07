@@ -1321,10 +1321,6 @@ PrefabInstance:
       value: Cat
       objectReference: {fileID: 0}
     - target: {fileID: 3836099833363297036, guid: 39105c739076a0949aa89af672b312fb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3836099833363297036, guid: 39105c739076a0949aa89af672b312fb, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
