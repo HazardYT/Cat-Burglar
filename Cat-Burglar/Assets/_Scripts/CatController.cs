@@ -43,7 +43,8 @@ public class CatController : MonoBehaviour
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-
+        if (isRunning) { anim.SetBool("Running", true); } else anim.SetBool("Running", false);
+        if (!isRunning && characterController.velocity.magnitude > 0) { anim.SetBool("Walking",true); } else anim.SetBool("Walking",false);
         if (Input.GetButtonDown("Jump") && canMove && characterController.isGrounded)
         {
             anim.SetBool("Jumping", true);
@@ -59,9 +60,8 @@ public class CatController : MonoBehaviour
         // as an acceleration (ms^-2)
         if (!characterController.isGrounded)
         {
-            anim.SetBool("Jumping", true);
             moveDirection.y -= gravity * Time.deltaTime;
-        } else anim.SetBool("Jumping",false);
+        }
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
@@ -74,5 +74,6 @@ public class CatController : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
+        if (characterController.isGrounded) { anim.SetBool("Jumping",false);}
     }
 }
