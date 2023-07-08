@@ -614,6 +614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6caa0ec330a345247ae16312d96e2982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lm:
+    serializedVersion: 2
+    m_Bits: 63
   playerCamera: {fileID: 0}
   refShader: {fileID: 4800000, guid: e3b30239bf895eb409abeba3c9ff165c, type: 3}
   groupId: AB
