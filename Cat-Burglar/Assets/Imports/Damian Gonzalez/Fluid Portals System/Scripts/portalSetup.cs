@@ -8,6 +8,8 @@ using System;
 
 public class portalSetup : MonoBehaviour {
 
+    [SerializeField] LayerMask lm;
+
     public Transform playerCamera;  //this is optional. Default value is main camera.
     public Shader refShader;        //this is already assigned. Should be "screenRender.shader"
     public string groupId = "";     //not necessary, but useful for debugging
@@ -111,6 +113,8 @@ public class portalSetup : MonoBehaviour {
         Camera cameraComp = playerCamera.GetComponent<Camera>();
         cameraA.CopyFrom(cameraComp);
         cameraB.CopyFrom(cameraComp);
+
+        cameraB.cullingMask = lm;
 
 
         //I setup both camera's scripts
