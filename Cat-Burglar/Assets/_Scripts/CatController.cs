@@ -10,10 +10,15 @@ public class CatController : MonoBehaviour
     public float runningSpeed = 11.5f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
+    public float meowChance = 0.5f;
+    bool jumping = false;
     public Camera playerCamera;
     public Animator anim;
+    public AudioClip[] meows;
+    public AudioSource audioSource;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
+    int previousSound;
 
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
@@ -45,8 +50,16 @@ public class CatController : MonoBehaviour
 
         if (isRunning) { anim.SetBool("Running", true); } else anim.SetBool("Running", false);
         if (!isRunning && characterController.velocity.magnitude > 0) { anim.SetBool("Walking",true); } else anim.SetBool("Walking",false);
-        if (Input.GetButtonDown("Jump") && canMove && characterController.isGrounded)
+        if (Input.GetButtonDown("Jump") && canMove && characterController.isGrounded && !jumping)
         {
+            jumping = true;
+            if (Random.value > meowChance){
+                int i = Random.Range(0, meows.Length);
+                if (i == previousSound) { i = Random.Range(0, meows.Length); }
+                previousSound = i;
+                audioSource.clip = meows[i];
+                audioSource.Play();
+            }
             anim.SetBool("Jumping", true);
             moveDirection.y = jumpSpeed;
         }
@@ -74,6 +87,6 @@ public class CatController : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
-        if (characterController.isGrounded) { anim.SetBool("Jumping",false);}
+        if (characterController.isGrounded) { anim.SetBool("Jumping",false); jumping = false;}
     }
 }
