@@ -5,7 +5,7 @@ using TMPro;
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private CatController catController;
-    [SerializeField] private TMP_Text Hud;
+    public TMP_Text Hud;
     [SerializeField] private TMP_Text itemsGrabbedText;
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask mask;
@@ -39,8 +39,8 @@ public class PlayerStats : MonoBehaviour
                 Debug.DrawLine(cam.transform.position, hit.point, Color.red);
                 if (hit.transform.CompareTag("Catnip")){
                     Destroy(hit.transform.gameObject);
-                    if (ItemsGrabbed < CatnipNeeded){
-                        ItemsGrabbed++;
+                    ItemsGrabbed++;
+                    if (ItemsGrabbed != CatnipNeeded){
                         volumeIntensity += 0.1f;
                         volume.weight = volumeIntensity;
                         itemsGrabbedText.text = $"Catnip Stolen: {ItemsGrabbed}";

@@ -6,12 +6,12 @@ public class ItemSpawner : MonoBehaviour
 {
     public GameObject _catnip;
     public GameObject _food;
-    public int EasyDifficultyFoodSpawns = 12;
-    public int NormalDifficultyFoodSpawns = 10;
-    public int HardDifficultyFoodSpawns = 6;
-    public int EasyDifficultyCatnipSpawns = 6;
-    public int NormalDifficultyCatnipSpawns = 8;
-    public int HardDifficultyCatnipSpawns = 16;
+    public int EasyDifficultyFoodSpawns = 24;
+    public int NormalDifficultyFoodSpawns = 16;
+    public int HardDifficultyFoodSpawns = 12;
+    public int EasyDifficultyCatnipSpawns = 4;
+    public int NormalDifficultyCatnipSpawns = 6;
+    public int HardDifficultyCatnipSpawns = 12;
     public List<Transform> CatnipSpawns = new List<Transform>();
     public List<Transform> FoodSpawns = new List<Transform>();
     public static ItemSpawner instance;
@@ -22,13 +22,13 @@ public class ItemSpawner : MonoBehaviour
         instance = this;
         switch(Menu.difficulty){
             case 0:
-                StartCoroutine(SpawnItems(EasyDifficultyFoodSpawns, EasyDifficultyCatnipSpawns));
+                StartCoroutine(SpawnItems(EasyDifficultyFoodSpawns +1, EasyDifficultyCatnipSpawns+1));
                 break;
             case 1:
-                StartCoroutine(SpawnItems(NormalDifficultyFoodSpawns, NormalDifficultyCatnipSpawns));
+                StartCoroutine(SpawnItems(NormalDifficultyFoodSpawns+1, NormalDifficultyCatnipSpawns+1));
                 break;
             case 2:
-                StartCoroutine(SpawnItems(HardDifficultyFoodSpawns, HardDifficultyCatnipSpawns));
+                StartCoroutine(SpawnItems(HardDifficultyFoodSpawns+1, HardDifficultyCatnipSpawns+1));
                 break;
         }
     }
