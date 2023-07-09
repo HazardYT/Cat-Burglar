@@ -57,17 +57,18 @@ public class PlayerStats : MonoBehaviour
                     catController.curStam += 25;
                     }
                     else catController.curStam = 100;
-                    catController.PlayMeow();
-                    while (catController.audioSource.isPlaying){
-                        return;
-                    }
-                    manager.PlayPurr();
+                    StartCoroutine(WaitToPurr());
                 }
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape)){
             manager.MenuToggle();
         }
+    }
+    IEnumerator WaitToPurr(){
+        catController.PlayMeow();
+        yield return new WaitUntil(() => !catController.audioSource.isPlaying);
+        manager.PlayPurr();
     }
     IEnumerator HudTextPickup(string name = ""){
         Hud.text = $"Grabbed {name}";
