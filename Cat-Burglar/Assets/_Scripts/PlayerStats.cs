@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 using TMPro;
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private CatController catController;
+    public CatController catController;
     public TMP_Text Hud;
     [SerializeField] private TMP_Text itemsGrabbedText;
     [SerializeField] private Camera cam;

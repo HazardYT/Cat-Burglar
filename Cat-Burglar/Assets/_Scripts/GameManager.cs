@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text timerdisplay;
 
     void Start(){
+        Time.timeScale = 1;
         playerStats = FindObjectOfType<PlayerStats>();
         switch(Menu.difficulty){
             case 0:
@@ -45,12 +46,7 @@ public class GameManager : MonoBehaviour
         curTime = startTime;
     }
     IEnumerator StartingText(){
-        Time.timeScale = 0.2f;
-        yield return new WaitForEndOfFrame();
         playerStats.Hud.text = "Im all out of Catnip!, i need more or im going to die!!";
-        yield return new WaitForSeconds(0.4f);
-        playerStats.Hud.text = "I need to more ASAP, Im gonna Look in that House!";
-        Time.timeScale = 1;
         yield return new WaitForSeconds(2f);
         playerStats.Hud.text = "";
     }
