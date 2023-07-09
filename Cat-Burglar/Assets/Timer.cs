@@ -19,15 +19,12 @@ public class Timer : MonoBehaviour
 
     [SerializeField] TMP_Text display;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
+
         curTime = startTime;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
+    void Update(){
+        
         curTime -= countdownSpeed * Time.deltaTime;
 
         mins = Mathf.RoundToInt(Mathf.Floor(curTime / 60));
