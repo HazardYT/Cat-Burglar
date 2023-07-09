@@ -13,6 +13,8 @@ public class CatController : MonoBehaviour
     public float curStam;
     public float stamReductionSpeed = 1.0f;
 
+    public bool blinking = false;
+
     public RawImage stamBar;
 
     public float walkingSpeed = 7.5f;
@@ -80,6 +82,17 @@ public class CatController : MonoBehaviour
         }
         curStam = Mathf.Clamp(curStam, 0f, 100f);
         stamBar.transform.localScale = new Vector3(curStam/100f, 1, 1);
+        if(curStam >= 50 && !isRunning){
+
+            stamBar.color = new Color(255, 255, 255, Mathf.Lerp(stamBar.color.a, 0, 2 * Time.deltaTime));
+        } else{
+
+            stamBar.color = new Color(255, 255, 255, Mathf.Lerp(stamBar.color.a, 100, Time.deltaTime));
+        }
+        if(curStam <= 40 && isRunning && !blinking){
+
+            StartCoroutine(BinkStamBar(0.25f));
+        }
 
         if (isRunning) { anim.SetBool("Running", true); } else anim.SetBool("Running", false);
         if (!isRunning && characterController.velocity.magnitude > 0) { anim.SetBool("Walking",true); } else anim.SetBool("Walking",false);
@@ -121,5 +134,16 @@ public class CatController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
         if (characterController.isGrounded) { anim.SetBool("Jumping",false); jumping = false;}
+    }
+
+
+    IEnumerator BinkStamBar(float waitTime){
+
+        blinking = true;
+        stamBar.enabled = false;
+        yield return new WaitForSeconds(waitTime);
+        stamBar.enabled = true;
+        yield return new WaitForSeconds(waitTime);
+        blinking = false;
     }
 }
