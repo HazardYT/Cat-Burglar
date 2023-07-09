@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 360953537156562538}
   - component: {fileID: 971985678327259831}
   - component: {fileID: 8754090136366342725}
+  - component: {fileID: -7335673941829600396}
   m_Layer: 0
   m_Name: Capurrrcino
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &971985678327259831
 MeshFilter:
@@ -83,3 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-7335673941829600396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241517623631120055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59d1d49192bfdd4cbb3b1438de69aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMat: {fileID: 2100000, guid: f3ee3d05eb8337947879053398bfee94, type: 2}
+  normalMat: {fileID: 2100000, guid: 6c8474dc04b86c14abef2b152ccc309d, type: 2}
+  rend: {fileID: 8754090136366342725}
+  toggle: 0
