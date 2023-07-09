@@ -40535,7 +40535,7 @@ MonoBehaviour:
   runningSpeed: 11.5
   jumpSpeed: 8
   gravity: 20
-  meowChance: 0.5
+  meowChance: 0.3
   playerCamera: {fileID: 1679577349}
   anim: {fileID: 8663425559911598816}
   meows:
