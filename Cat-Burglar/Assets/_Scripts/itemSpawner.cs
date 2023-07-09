@@ -10,18 +10,16 @@ public class ItemSpawner : MonoBehaviour
     public int NormalDifficultyFoodSpawns = 10;
     public int HardDifficultyFoodSpawns = 6;
     public int EasyDifficultyCatnipSpawns = 6;
-    public int NormalDifficultyCatnipSpawns = 12;
+    public int NormalDifficultyCatnipSpawns = 8;
     public int HardDifficultyCatnipSpawns = 16;
     public List<Transform> CatnipSpawns = new List<Transform>();
     public List<Transform> FoodSpawns = new List<Transform>();
-
     public static ItemSpawner instance;
 
 
     void Start()
     {
         instance = this;
-
         switch(Menu.difficulty){
             case 0:
                 StartCoroutine(SpawnItems(EasyDifficultyFoodSpawns, EasyDifficultyCatnipSpawns));

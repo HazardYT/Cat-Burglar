@@ -26,6 +26,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text timerdisplay;
 
     void Start(){
+        switch(Menu.difficulty){
+            case 0:
+                startTime = 600;
+                break;
+            case 1:
+                startTime = 300;
+                break;
+            case 2:
+                startTime = 150;
+                break;
+        }
         Time.timeScale = 1;
         DontDestroyOnLoad(this.gameObject);
         curTime = startTime;
@@ -68,6 +79,11 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("Game");
         Destroy(this.gameObject);
     }
+    public void Retry(){
+        SceneManager.UnloadSceneAsync("Game");
+        SceneManager.LoadScene("Game");
+        Destroy(this.gameObject);
+    }
     public void Lose(){
         audioSource.clip = Hiss;
         audioSource.Play();
@@ -97,6 +113,7 @@ public class GameManager : MonoBehaviour
         TimeLeftAfter.text = $"Your Time: {displayTime}";
     }
     public void PlayPurr(){
+        audioSource.Stop();
         audioSource.clip = Purr;
         audioSource.Play();
     }

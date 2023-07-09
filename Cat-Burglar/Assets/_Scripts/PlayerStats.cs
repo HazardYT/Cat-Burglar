@@ -55,10 +55,8 @@ public class PlayerStats : MonoBehaviour
                 else if (hit.transform.CompareTag("Food")){
                     Destroy(hit.transform.gameObject);
                     StartCoroutine(Munch());
-                    if (catController.curStam + 25 < catController.maxStam){
                     catController.curStam += 25;
-                    }
-                    else catController.curStam = 100;
+                    catController.canRun = true;
                 }
             }
         }

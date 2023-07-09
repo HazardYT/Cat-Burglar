@@ -148,16 +148,19 @@ public class CatController : MonoBehaviour
         }
     }
     public void PlayMeow(){
+        audioSource.Stop();
         int i = Random.Range(0, meows.Length);
         previousSound = i;
         audioSource.clip = meows[i];
         audioSource.Play();
     }
     public void PlayMunch(){
+        audioSource.Stop();
         audioSource.clip = munch;
         audioSource.Play();
     }
     public void PlayHappy(){
+        audioSource.Stop();
         audioSource.clip = happy;
         audioSource.Play();
     }
