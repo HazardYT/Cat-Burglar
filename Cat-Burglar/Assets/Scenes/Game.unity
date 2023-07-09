@@ -8577,7 +8577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7475571326831528621, guid: 80f54ca208e49dd408f41ff22bff6d0c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5930240076866401121, guid: 80f54ca208e49dd408f41ff22bff6d0c, type: 3}
       propertyPath: m_IsActive
@@ -8585,7 +8585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5003154180127661599, guid: 80f54ca208e49dd408f41ff22bff6d0c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -188211853093710351, guid: 80f54ca208e49dd408f41ff22bff6d0c, type: 3}
       propertyPath: m_IsActive
@@ -8621,7 +8621,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f4dbd70e2f7b18c4d99d6c06b0875e60, type: 2}
     - target: {fileID: 3979587196966842151, guid: 80f54ca208e49dd408f41ff22bff6d0c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4118578439709952365, guid: 80f54ca208e49dd408f41ff22bff6d0c, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8633,11 +8633,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6207686563130966120, guid: 80f54ca208e49dd408f41ff22bff6d0c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6596965156028184534, guid: 80f54ca208e49dd408f41ff22bff6d0c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8148529830872995531, guid: 80f54ca208e49dd408f41ff22bff6d0c, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12852,18 +12852,22 @@ MonoBehaviour:
   NormalSpeed: 10
   HardSpeed: 14
   agent: {fileID: 722345488}
+  anim: {fileID: 0}
   startPoints:
   - {fileID: 129153990}
   - {fileID: 1845219129}
   - {fileID: 254296910}
   - {fileID: 85896227}
   - {fileID: 1920141833}
+  Squeaks: []
   Player: {fileID: 8663425559911598817}
   mask:
     serializedVersion: 2
     m_Bits: 128
+  squeakAudioSource: {fileID: 0}
   tweakFootsteps: 3
   Radius: 15
+  attackRange: 2
 --- !u!195 &722345488
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -28260,8 +28264,6 @@ MonoBehaviour:
   - {fileID: 1270838401}
   - {fileID: 1696067328}
   - {fileID: 2131835125}
-  cnspl: {fileID: 1076549188}
-  fspl: {fileID: 1558001511}
 --- !u!1001 &1539233947
 PrefabInstance:
   m_ObjectHideFlags: 0
