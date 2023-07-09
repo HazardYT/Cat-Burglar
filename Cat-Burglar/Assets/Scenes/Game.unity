@@ -12335,9 +12335,6 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 128
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 5
-  isWalkPointSet: 0
   tweakFootsteps: 3
   Radius: 15
 --- !u!195 &722345488
