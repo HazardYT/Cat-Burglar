@@ -115,7 +115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2ac2d7803c6558248b0d56d928843ff1, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2ac2d7803c6558248b0d56d928843ff1, type: 3}
       propertyPath: m_LocalScale.x
@@ -195,8 +195,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2ac2d7803c6558248b0d56d928843ff1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4222411264664841699}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2ac2d7803c6558248b0d56d928843ff1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8239278569345253195}
   m_SourcePrefab: {fileID: 100100000, guid: 2ac2d7803c6558248b0d56d928843ff1, type: 3}
+--- !u!1 &6015926510810165461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2ac2d7803c6558248b0d56d928843ff1, type: 3}
+  m_PrefabInstance: {fileID: 6898868770400161156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8239278569345253195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6015926510810165461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59d1d49192bfdd4cbb3b1438de69aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMat: {fileID: 2100000, guid: f3ee3d05eb8337947879053398bfee94, type: 2}
+  normalMat: {fileID: 2100000, guid: cdad05cca9e8d3c4e9bc3df569e4245d, type: 2}
+  rend: {fileID: 5955759675675803368}
+  toggle: 0
 --- !u!4 &6356564677144717935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2ac2d7803c6558248b0d56d928843ff1, type: 3}
