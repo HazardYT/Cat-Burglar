@@ -6,17 +6,19 @@ public class ItemSpawner : MonoBehaviour
 {
     public GameObject _catnip;
     public GameObject _food;
-    [SerializeField] private int EasyDifficultyFoodSpawns = 12;
-    [SerializeField] private int NormalDifficultyFoodSpawns = 10;
-    [SerializeField] private int HardDifficultyFoodSpawns = 6;
-    [SerializeField] private int EasyDifficultyCatnipSpawns = 6;
-    [SerializeField] private int NormalDifficultyCatnipSpawns = 12;
-    [SerializeField] private int HardDifficultyCatnipSpawns = 16;
+    public int EasyDifficultyFoodSpawns = 12;
+    public int NormalDifficultyFoodSpawns = 10;
+    public int HardDifficultyFoodSpawns = 6;
+    public int EasyDifficultyCatnipSpawns = 6;
+    public int NormalDifficultyCatnipSpawns = 12;
+    public int HardDifficultyCatnipSpawns = 16;
     public List<Transform> CatnipSpawns = new List<Transform>();
     public List<Transform> FoodSpawns = new List<Transform>();
+    public static ItemSpawner instance;
     void Start()
     {
-        switch(Menu.instance.difficulty){
+        instance = this;
+        switch(Menu.difficulty){
             case 0:
                 StartCoroutine(SpawnItems(EasyDifficultyFoodSpawns, EasyDifficultyCatnipSpawns));
                 break;

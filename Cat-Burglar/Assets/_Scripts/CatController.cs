@@ -12,10 +12,11 @@ public class CatController : MonoBehaviour
     public float maxStam = 100f;
     public float curStam;
     public float stamReductionSpeed = 1.0f;
-
+    private float _footstepDistanceCounter;
     public bool blinking = false;
 
     public RawImage stamBar;
+    [SerializeField] private FootstepManager footstepManager;
 
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 11.5f;
@@ -30,6 +31,7 @@ public class CatController : MonoBehaviour
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
     int previousSound;
+    bool isRunning;
 
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
@@ -58,7 +60,8 @@ public class CatController : MonoBehaviour
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
         // Press Left Shift to run
-        bool isRunning = Input.GetKey(KeyCode.LeftShift) && canRun;
+        isRunning = Input.GetKey(KeyCode.LeftShift) && canRun;
+        float speed = isRunning ? runningSpeed : walkingSpeed;
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
@@ -72,14 +75,6 @@ public class CatController : MonoBehaviour
             if(curStam <= 10){
 
                 canRun = false;
-            }
-        }
-        else{
-
-            curStam += (stamReductionSpeed / 2) * Time.deltaTime;
-            if(curStam >= 50){
-
-                canRun = true;
             }
         }
         curStam = Mathf.Clamp(curStam, 0f, 100f);
@@ -136,9 +131,27 @@ public class CatController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
         if (characterController.isGrounded) { anim.SetBool("Jumping",false); jumping = false;}
+        if (characterController.velocity.magnitude > 0){
+            FootSteps(speed);
+        }
     }
-
-
+    public void FootSteps(float speed){
+        if (characterController.isGrounded && (characterController.velocity != Vector3.zero))
+        {
+            _footstepDistanceCounter += speed * Time.deltaTime;
+            if (_footstepDistanceCounter >= 3)
+            {
+                _footstepDistanceCounter = 0;
+                footstepManager.PlayFootstep(isRunning);
+            }
+        }
+    }
+    public void PlayMeow(){
+        int i = Random.Range(0, meows.Length);
+        previousSound = i;
+        audioSource.clip = meows[i];
+        audioSource.Play();
+    }
     IEnumerator BinkStamBar(float waitTime){
 
         blinking = true;

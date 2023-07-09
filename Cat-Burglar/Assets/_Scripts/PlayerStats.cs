@@ -1,28 +1,68 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 using TMPro;
 public class PlayerStats : MonoBehaviour
 {
+    [SerializeField] private CatController catController;
     [SerializeField] private TMP_Text Hud;
     [SerializeField] private TMP_Text itemsGrabbedText;
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask mask;
     [SerializeField] private int distance;
     [SerializeField] private GameManager manager;
+    [SerializeField] private Volume volume;
+    public int CatnipNeeded = 12;
+    float volumeIntensity = 0f;
     public int ItemsGrabbed = 0;
     void Start(){
         manager = FindObjectOfType<GameManager>();
+        switch(Menu.difficulty){
+            case 0:
+                CatnipNeeded = ItemSpawner.instance.EasyDifficultyCatnipSpawns;
+                catController.stamReductionSpeed = 5;
+                break;
+            case 1:
+                CatnipNeeded = ItemSpawner.instance.NormalDifficultyCatnipSpawns;
+                catController.stamReductionSpeed = 10;
+                break;
+            case 2:
+                CatnipNeeded = ItemSpawner.instance.HardDifficultyCatnipSpawns;
+                catController.stamReductionSpeed = 15;
+                break;
+        }
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)){
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, distance, mask)){
                 Debug.DrawLine(cam.transform.position, hit.point, Color.red);
-                Destroy(hit.transform.gameObject);
-                ItemsGrabbed++;
-                itemsGrabbedText.text = $"Catnip Stolen: {ItemsGrabbed}";
-                StopCoroutine(HudTextPickup());
-                StartCoroutine(HudTextPickup(hit.transform.name));
+                if (hit.transform.CompareTag("Catnip")){
+                    Destroy(hit.transform.gameObject);
+                    if (ItemsGrabbed < CatnipNeeded){
+                        ItemsGrabbed++;
+                        volumeIntensity += 0.1f;
+                        volume.weight = volumeIntensity;
+                        itemsGrabbedText.text = $"Catnip Stolen: {ItemsGrabbed}";
+                        StopCoroutine(HudTextPickup());
+                        StartCoroutine(HudTextPickup(hit.transform.name));
+                    }
+                    else{
+                        manager.Win();
+                    }
+                }
+                else if (hit.transform.CompareTag("Food")){
+                    Destroy(hit.transform.gameObject);
+                    if (catController.curStam + 25 < catController.maxStam){
+                    catController.curStam += 25;
+                    }
+                    else catController.curStam = 100;
+                    catController.PlayMeow();
+                    while (catController.audioSource.isPlaying){
+                        return;
+                    }
+                    manager.PlayPurr();
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape)){

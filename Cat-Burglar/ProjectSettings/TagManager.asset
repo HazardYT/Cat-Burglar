@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ball
   - Pickupable
+  - Food
+  - Catnip
   layers:
   - Default
   - TransparentFX

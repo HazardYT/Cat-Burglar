@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text WinOrLoseText;
     public TMP_Text TimeLeftAfter;
     public TMP_Text amountCollected;
+    public AudioSource audioSource;
+    public AudioClip Hiss;
+    public AudioClip Purr;
     public float startTime;
     public float curTime;
     public float countdownSpeed;
@@ -66,6 +69,9 @@ public class GameManager : MonoBehaviour
         Destroy(this.gameObject);
     }
     public void Lose(){
+        audioSource.clip = Hiss;
+        audioSource.Play();
+        Player.GetComponent<CatController>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         winloseScreen.gameObject.SetActive(true);
@@ -77,6 +83,9 @@ public class GameManager : MonoBehaviour
         TimeLeftAfter.text = $"Your Time: {displayTime}";
     }
     public void Win(){
+        audioSource.clip = Purr;
+        audioSource.Play();
+        Player.GetComponent<CatController>().enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         winloseScreen.gameObject.SetActive(true);
@@ -86,5 +95,9 @@ public class GameManager : MonoBehaviour
         gameCanv.enabled = false;
         Time.timeScale = 0;
         TimeLeftAfter.text = $"Your Time: {displayTime}";
+    }
+    public void PlayPurr(){
+        audioSource.clip = Purr;
+        audioSource.Play();
     }
 }

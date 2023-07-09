@@ -9,7 +9,7 @@ public class Glow : MonoBehaviour
     [SerializeField] Material normalMat;
     [SerializeField] MeshRenderer rend;
 
-    public bool toggle;
+    public bool toggle = false;
 
 
     // Update is called once per frame

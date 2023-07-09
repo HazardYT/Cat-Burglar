@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public int difficulty = 1;
+    public static int difficulty = 1;
     public float sensitivity = 2f;
     public static Menu instance;
     public TMP_Text sensText;
@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour
     public Slider sensitivitySlider;
     void Start(){
         instance = this;
+        difficulty = 1;
         sensitivitySlider.onValueChanged.AddListener (delegate {SetSensitivity();});
     }
     public void Play(){
