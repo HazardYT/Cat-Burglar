@@ -15,26 +15,26 @@ public class ItemSpawner : MonoBehaviour
     public List<Transform> CatnipSpawns = new List<Transform>();
     public List<Transform> FoodSpawns = new List<Transform>();
 
-    public GameObject cnspl;
-    public GameObject fspl;
+    // public GameObject cnspl;
+    // public GameObject fspl;
 
     public static ItemSpawner instance;
 
-    void Awake(){
+    // void Awake(){
 
-        Transform[] cnsplChildren = cnspl.GetComponentsInChildren<Transform>(); 
-        foreach (Transform child in cnsplChildren){
+    //     Transform[] cnsplChildren = cnspl.GetComponentsInChildren<Transform>(); 
+    //     foreach (Transform child in cnsplChildren){
             
-            if(child != cnspl.transform)
-                CatnipSpawns.Add(child);
-        }
-        Transform[] fsplChildren = fspl.GetComponentsInChildren<Transform>(); 
-        foreach (Transform child in fsplChildren){
+    //         if(child != cnspl.transform)
+    //             CatnipSpawns.Add(child);
+    //     }
+    //     Transform[] fsplChildren = fspl.GetComponentsInChildren<Transform>(); 
+    //     foreach (Transform child in fsplChildren){
 
-            if(child != fspl.transform)
-                FoodSpawns.Add(child);
-        }
-    }
+    //         if(child != fspl.transform)
+    //             FoodSpawns.Add(child);
+    //     }
+    // }
 
     void Start()
     {

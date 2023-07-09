@@ -28199,8 +28199,67 @@ MonoBehaviour:
   EasyDifficultyCatnipSpawns: 6
   NormalDifficultyCatnipSpawns: 12
   HardDifficultyCatnipSpawns: 16
-  CatnipSpawns: []
-  FoodSpawns: []
+  CatnipSpawns:
+  - {fileID: 1099796271}
+  - {fileID: 1519939567}
+  - {fileID: 569843463}
+  - {fileID: 289527483}
+  - {fileID: 295781863}
+  - {fileID: 1896956071}
+  - {fileID: 1345062234}
+  - {fileID: 1697425802}
+  - {fileID: 214795178}
+  - {fileID: 759270330}
+  - {fileID: 1696204273}
+  - {fileID: 1318384539}
+  - {fileID: 1252876313}
+  - {fileID: 710695404}
+  - {fileID: 494324323}
+  - {fileID: 889595761}
+  - {fileID: 683214102}
+  - {fileID: 837868971}
+  - {fileID: 763411202}
+  - {fileID: 1414081896}
+  - {fileID: 442525216}
+  - {fileID: 495988629}
+  - {fileID: 1746019412}
+  - {fileID: 358315932}
+  - {fileID: 1528536453}
+  - {fileID: 125718837}
+  - {fileID: 530339079}
+  FoodSpawns:
+  - {fileID: 1465370443}
+  - {fileID: 1486316228}
+  - {fileID: 155438742}
+  - {fileID: 1364264631}
+  - {fileID: 172012027}
+  - {fileID: 1833408599}
+  - {fileID: 743342210}
+  - {fileID: 850214137}
+  - {fileID: 1967277121}
+  - {fileID: 1092619532}
+  - {fileID: 772153196}
+  - {fileID: 853454543}
+  - {fileID: 1525536633}
+  - {fileID: 440315647}
+  - {fileID: 2082212638}
+  - {fileID: 1695660355}
+  - {fileID: 903788985}
+  - {fileID: 1177820687}
+  - {fileID: 696652376}
+  - {fileID: 1515280857}
+  - {fileID: 732628551}
+  - {fileID: 775437502}
+  - {fileID: 2093087922}
+  - {fileID: 1158054331}
+  - {fileID: 1973293318}
+  - {fileID: 822899937}
+  - {fileID: 19340081}
+  - {fileID: 1528653499}
+  - {fileID: 758988146}
+  - {fileID: 1270838401}
+  - {fileID: 1696067328}
+  - {fileID: 2131835125}
   cnspl: {fileID: 1076549188}
   fspl: {fileID: 1558001511}
 --- !u!1001 &1539233947
