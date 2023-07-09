@@ -44,6 +44,7 @@ public class PlayerStats : MonoBehaviour
                         volumeIntensity += 0.1f;
                         volume.weight = volumeIntensity;
                         itemsGrabbedText.text = $"Catnip Stolen: {ItemsGrabbed}";
+                        catController.PlayHappy();
                         StopCoroutine(HudTextPickup());
                         StartCoroutine(HudTextPickup(hit.transform.name));
                     }

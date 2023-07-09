@@ -38,14 +38,16 @@ public class ItemSpawner : MonoBehaviour
         for (int i = 0; i < foodAmount; i++)
         {
             int n = Random.Range(0, FoodSpawns.Count);
-            Instantiate(_food, FoodSpawns[n].position, FoodSpawns[n].rotation);
+            GameObject g = Instantiate(_food, FoodSpawns[n].position, FoodSpawns[n].rotation);
+            g.name = _food.name;
             FoodSpawns.Remove(FoodSpawns[n]);
             yield return new WaitForEndOfFrame();
         }
         for (int i = 0; i < catnipAmount; i++)
         {
             int n = Random.Range(0, CatnipSpawns.Count);
-            Instantiate(_catnip, CatnipSpawns[n].position, CatnipSpawns[n].rotation);
+            GameObject g = Instantiate(_catnip, CatnipSpawns[n].position, CatnipSpawns[n].rotation);
+            g.name = _catnip.name;
             CatnipSpawns.Remove(CatnipSpawns[n]);
             yield return new WaitForEndOfFrame();
         }
