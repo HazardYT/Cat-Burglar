@@ -40,7 +40,7 @@ public class CatController : MonoBehaviour
 
     void Start()
     {
-
+        if (Menu.instance != null) lookSpeed = Menu.instance.sensitivity;
         curStam = maxStam;
         canRun = true;
 

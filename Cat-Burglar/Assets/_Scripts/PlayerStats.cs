@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 public class PlayerStats : MonoBehaviour
@@ -9,7 +8,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask mask;
     [SerializeField] private int distance;
+    [SerializeField] private GameManager manager;
     public int ItemsGrabbed = 0;
+    void Start(){
+        manager = FindObjectOfType<GameManager>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)){
@@ -17,10 +20,13 @@ public class PlayerStats : MonoBehaviour
                 Debug.DrawLine(cam.transform.position, hit.point, Color.red);
                 Destroy(hit.transform.gameObject);
                 ItemsGrabbed++;
-                itemsGrabbedText.text = $"{ItemsGrabbed}";
+                itemsGrabbedText.text = $"Catnip Stolen: {ItemsGrabbed}";
                 StopCoroutine(HudTextPickup());
                 StartCoroutine(HudTextPickup(hit.transform.name));
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            manager.MenuToggle();
         }
     }
     IEnumerator HudTextPickup(string name = ""){
