@@ -40528,6 +40528,7 @@ MonoBehaviour:
   curStam: 0
   stamReductionSpeed: 10
   blinking: 0
+  munch: {fileID: 8300000, guid: b962a89ccba447e4d8cf98950e7da44b, type: 3}
   stamBar: {fileID: 2943791}
   footstepManager: {fileID: 8663425559911598821}
   walkingSpeed: 7.5

@@ -14,7 +14,7 @@ public class CatController : MonoBehaviour
     public float stamReductionSpeed = 1.0f;
     private float _footstepDistanceCounter;
     public bool blinking = false;
-
+    public AudioClip munch;
     public RawImage stamBar;
     [SerializeField] private FootstepManager footstepManager;
 
@@ -150,6 +150,10 @@ public class CatController : MonoBehaviour
         int i = Random.Range(0, meows.Length);
         previousSound = i;
         audioSource.clip = meows[i];
+        audioSource.Play();
+    }
+    public void PlayMunch(){
+        audioSource.clip = munch;
         audioSource.Play();
     }
     IEnumerator BinkStamBar(float waitTime){

@@ -66,7 +66,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
     IEnumerator WaitToPurr(){
-        catController.PlayMeow();
+        catController.PlayMunch();
         yield return new WaitUntil(() => !catController.audioSource.isPlaying);
         manager.PlayPurr();
     }
