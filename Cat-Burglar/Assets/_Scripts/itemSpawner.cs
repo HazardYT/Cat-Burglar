@@ -14,10 +14,32 @@ public class ItemSpawner : MonoBehaviour
     public int HardDifficultyCatnipSpawns = 16;
     public List<Transform> CatnipSpawns = new List<Transform>();
     public List<Transform> FoodSpawns = new List<Transform>();
+
+    public GameObject cnspl;
+    public GameObject fspl;
+
     public static ItemSpawner instance;
+
+    void Awake(){
+
+        Transform[] cnsplChildren = cnspl.GetComponentsInChildren<Transform>(); 
+        foreach (Transform child in cnsplChildren){
+            
+            if(child != cnspl.transform)
+                CatnipSpawns.Add(child);
+        }
+        Transform[] fsplChildren = fspl.GetComponentsInChildren<Transform>(); 
+        foreach (Transform child in fsplChildren){
+
+            if(child != fspl.transform)
+                FoodSpawns.Add(child);
+        }
+    }
+
     void Start()
     {
         instance = this;
+
         switch(Menu.difficulty){
             case 0:
                 StartCoroutine(SpawnItems(EasyDifficultyFoodSpawns, EasyDifficultyCatnipSpawns));
