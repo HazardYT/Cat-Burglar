@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         winloseScreen.gameObject.SetActive(true);
         amountCollected.text = $"You Collected: {Player.GetComponent<PlayerStats>().ItemsGrabbed} Catnip!";
-        WinOrLoseText.text = "You suck wow";
+        WinOrLoseText.text = "You suck lol";
         menu.enabled = false;
         gameCanv.enabled = false;
         Time.timeScale = 0;
