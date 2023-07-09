@@ -64,6 +64,8 @@ public class CatController : MonoBehaviour
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
+        if(!canRun){isRunning = false;}
+
         if(isRunning){
 
             curStam -= stamReductionSpeed * Time.deltaTime;
