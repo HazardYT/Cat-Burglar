@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 
 public class CatController : MonoBehaviour
 {
+
+    public bool canRun = true;
+    public float maxStam = 100f;
+    public float curStam;
+    public float stamReductionSpeed = 1.0f;
+
+    public RawImage stamBar;
+
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 11.5f;
     public float jumpSpeed = 8.0f;
@@ -29,6 +38,10 @@ public class CatController : MonoBehaviour
 
     void Start()
     {
+
+        curStam = maxStam;
+        canRun = true;
+
         characterController = GetComponent<CharacterController>();
 
         // Lock cursor
@@ -38,15 +51,35 @@ public class CatController : MonoBehaviour
 
     void Update()
     {
+
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
         // Press Left Shift to run
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+        bool isRunning = Input.GetKey(KeyCode.LeftShift) && canRun;
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+
+        if(isRunning){
+
+            curStam -= stamReductionSpeed * Time.deltaTime;
+            if(curStam <= 10){
+
+                canRun = false;
+            }
+        }
+        else{
+
+            curStam += (stamReductionSpeed / 2) * Time.deltaTime;
+            if(curStam >= 50){
+
+                canRun = true;
+            }
+        }
+        curStam = Mathf.Clamp(curStam, 0f, 100f);
+        stamBar.transform.localScale = new Vector3(curStam/100f, 1, 1);
 
         if (isRunning) { anim.SetBool("Running", true); } else anim.SetBool("Running", false);
         if (!isRunning && characterController.velocity.magnitude > 0) { anim.SetBool("Walking",true); } else anim.SetBool("Walking",false);
